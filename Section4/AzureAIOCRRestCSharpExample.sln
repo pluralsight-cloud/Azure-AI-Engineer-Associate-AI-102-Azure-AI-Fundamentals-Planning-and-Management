@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureAIOCRRestCSharpExample", "AzureAIOCRRestCSharpExample\AzureAIOCRRestCSharpExample.csproj", "{E334C818-1755-4870-9761-D4C0B2D326E3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureAIOCRCSharpSDK", "AzureAIOCRCSharpSDK\AzureAIOCRCSharpSDK.csproj", "{E2AEB00E-5755-4541-9432-E7D57570AF3C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{E334C818-1755-4870-9761-D4C0B2D326E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E334C818-1755-4870-9761-D4C0B2D326E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E334C818-1755-4870-9761-D4C0B2D326E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2AEB00E-5755-4541-9432-E7D57570AF3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2AEB00E-5755-4541-9432-E7D57570AF3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2AEB00E-5755-4541-9432-E7D57570AF3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2AEB00E-5755-4541-9432-E7D57570AF3C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
