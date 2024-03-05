@@ -1,5 +1,9 @@
-﻿using System.Net.Http.Headers;
+﻿using System;
+using Microsoft.Azure.CognitiveServices.Vision.ComputerVision;
+using Microsoft.Azure.CognitiveServices.Vision.ComputerVision.Models;
+using System.Threading.Tasks;
 
+// Must have run dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision --version 7.0.0
 class Program
 {
     static readonly string subscriptionKey = Environment.GetEnvironmentVariable("AI_SVC_KEY");
@@ -9,29 +13,34 @@ class Program
     {
         string imageUrl = "https://github.com/johnthebrit/RandomStuff/raw/master/Whiteboards/RAG.png";
 
-        var result = ExtractTextFromImageAsync(imageUrl).Result;
+        var client = new ComputerVisionClient(new ApiKeyServiceClientCredentials(subscriptionKey))
+        {
+            Endpoint = endpoint
+        };
+
+        var result = ExtractTextFromImageAsync(client,imageUrl).Result;
 
         Console.WriteLine("\nExtracted text from image:");
         Console.WriteLine(result);
     }
 
-    static async Task<string> ExtractTextFromImageAsync(string imageUrl)
+    static async Task<string> ExtractTextFromImageAsync(ComputerVisionClient client, string imageUrl)
     {
-        HttpClient client = new HttpClient();
-        client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+        var ocrResult = await client.RecognizePrintedTextAsync(true, imageUrl);
 
-        string uri = endpoint + "vision/v3.0/ocr?language=unk&detectOrientation=true";
-
-        HttpResponseMessage response;
-        string requestBody = "{\"url\":\"" + imageUrl + "\"}";
-
-        using (var content = new StringContent(requestBody))
+        string result = "";
+        foreach (var region in ocrResult.Regions)
         {
-            content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
-            response = await client.PostAsync(uri, content);
+            foreach (var line in region.Lines)
+            {
+                foreach (var word in line.Words)
+                {
+                    result += word.Text + " ";
+                }
+                result += "\n";
+            }
         }
 
-        string result = await response.Content.ReadAsStringAsync();
         return result;
     }
 }
