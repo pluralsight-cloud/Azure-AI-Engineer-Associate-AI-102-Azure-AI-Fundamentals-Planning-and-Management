@@ -3,7 +3,7 @@ using Microsoft.Azure.CognitiveServices.Vision.ComputerVision;
 using Microsoft.Azure.CognitiveServices.Vision.ComputerVision.Models;
 using System.Threading.Tasks;
 
-// Must have run dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision --version 7.0.0
+// Must have run in the project folder "dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision --version 7.0.0"
 class Program
 {
     static readonly string subscriptionKey = Environment.GetEnvironmentVariable("AI_SVC_KEY");

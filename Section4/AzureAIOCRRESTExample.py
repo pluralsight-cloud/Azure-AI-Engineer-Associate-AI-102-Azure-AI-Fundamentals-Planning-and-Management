@@ -1,5 +1,5 @@
 #Get your endpoints setup
-#setx AI_SVC_KEY YOURKEY
+#setx AI_SVC_KEY YOURAPIKEY
 #setx AI_SVC_ENDPOINT YOURENDPOINT
 
 import requests
