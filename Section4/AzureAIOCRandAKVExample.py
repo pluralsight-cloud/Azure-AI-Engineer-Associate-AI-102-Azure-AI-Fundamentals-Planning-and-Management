@@ -3,7 +3,6 @@
 #python.exe -m pip install --upgrade pip
 #pip install --upgrade azure-cognitiveservices-vision-computervision
 #pip install azure-identity azure-keyvault-secrets
-#pip install pillow
 
 #Get your endpoints setup
 #setx AI_SVC_ENDPOINT YOURAISVCENDPOINT
@@ -19,8 +18,6 @@ from azure.keyvault.secrets import SecretClient
 
 from array import array
 import os
-from PIL import Image
-import sys
 import time
 
 #Authenticate to Entra (Azure AD)

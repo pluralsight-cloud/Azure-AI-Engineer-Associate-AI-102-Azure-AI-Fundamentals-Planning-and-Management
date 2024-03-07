@@ -3,7 +3,6 @@
 #setx AI_SVC_ENDPOINT YOURENDPOINT
 
 import requests
-import json
 import os
 
 #Authenticate

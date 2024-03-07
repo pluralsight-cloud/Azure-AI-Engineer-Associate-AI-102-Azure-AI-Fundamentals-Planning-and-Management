@@ -2,7 +2,6 @@
 #Get pip installed (run in elevated)
 #python.exe -m pip install --upgrade pip
 #pip install --upgrade azure-cognitiveservices-vision-computervision
-#pip install pillow
 
 #Get your endpoints setup
 #setx AI_SVC_KEY YOURKEY
@@ -15,8 +14,6 @@ from msrest.authentication import CognitiveServicesCredentials
 
 from array import array
 import os
-from PIL import Image
-import sys
 import time
 
 #Authenticate
